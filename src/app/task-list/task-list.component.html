@@ -1,0 +1,15 @@
+<div class="m-4 w-[350px]">
+  <div class="bg-white border p-4 flex justify-between">
+    <input type="text" class="border rounded px-2" [(ngModel)]="taskInput" (keydown.enter)="addItem()">
+    <button (click)="clearItems()" class="bg-red-400 text-white px-4 rounded ml-3"> Clear </button>
+  </div>
+
+  <ul *ngIf="taskList.length" class="bg-white rounded border mt-4">
+    <li *ngFor="let item of taskList; let index = index" class="odd:bg-slate-100 py-3 px-4">
+      <div class="flex justify-between">
+        <p>{{ item }}</p>
+        <button (click)="removeItem(index)" class="bg-red-400 text-white px-4 rounded ml-3"> Delete </button>
+      </div>
+    </li>
+  </ul>
+</div>
